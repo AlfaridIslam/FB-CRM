@@ -7,7 +7,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const connections_1 = __importDefault(require("./db/connections"));
 const app_1 = require("./app");
 dotenv_1.default.config({
-    path: './.env'
+    path: './.env',
 });
 (0, connections_1.default)()
     .then(() => {
@@ -16,5 +16,5 @@ dotenv_1.default.config({
     });
 })
     .catch((err) => {
-    console.log("MONGO db connection failed !!! ", err);
+    console.log('MONGO db connection failed !!! ', err);
 });

@@ -19,9 +19,12 @@ require('dotenv').config();
 const clientID = process.env.FACEBOOK_CLIENT_ID;
 const clientSecret = process.env.FACEBOOK_SECRET_KEY;
 const callbackURL = process.env.FACEBOOK_CALLBACK_URL;
-if (!clientID || !clientSecret || !callbackURL) {
-    throw new Error("Missing Facebook OAuth environment variables");
-}
+passport_1.default.serializeUser((user, cb) => {
+    cb(null, user);
+});
+passport_1.default.deserializeUser((obj, cb) => {
+    cb(null, obj);
+});
 passport_1.default.use(new passport_facebook_1.Strategy({
     clientID,
     clientSecret,

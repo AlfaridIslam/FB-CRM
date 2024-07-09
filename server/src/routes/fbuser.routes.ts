@@ -1,4 +1,3 @@
-// src/routes/fbuser.routes.ts
 import express from 'express';
 import passport from '../utils/passport';
 import { authSuccess, authError, signOut } from '../controllers/fbUser.controller';
@@ -18,9 +17,7 @@ router.get(
 );
 
 router.get('/success', authSuccess);
-
 router.get('/error', authError);
-
 router.get('/signout', signOut);
 
 export default router;

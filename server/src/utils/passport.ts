@@ -3,13 +3,17 @@ import { Strategy as FacebookStrategy } from 'passport-facebook';
 import { FbUser } from '../models/fbUser.model';
 require('dotenv').config();
 
-const clientID = process.env.FACEBOOK_CLIENT_ID;
-const clientSecret = process.env.FACEBOOK_SECRET_KEY;
-const callbackURL = process.env.FACEBOOK_CALLBACK_URL;
+const clientID = process.env.FACEBOOK_CLIENT_ID!;
+const clientSecret = process.env.FACEBOOK_SECRET_KEY!;
+const callbackURL = process.env.FACEBOOK_CALLBACK_URL!;
 
-if (!clientID || !clientSecret || !callbackURL) {
-    throw new Error("Missing Facebook OAuth environment variables");
-}
+passport.serializeUser((user, cb) => {
+    cb(null, user);
+});
+
+passport.deserializeUser((obj: any, cb) => {
+    cb(null, obj);
+});
 
 passport.use(
     new FacebookStrategy(
