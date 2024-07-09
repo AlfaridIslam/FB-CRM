@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.signOut = exports.authError = exports.authSuccess = void 0;
+// Your authSuccess handler
 const authSuccess = (req, res) => {
     var _a;
     if ((_a = req.session) === null || _a === void 0 ? void 0 : _a.passport) {

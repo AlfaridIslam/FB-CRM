@@ -1,5 +1,20 @@
 import { Request, Response, RequestHandler } from 'express';
+import session from 'express-session';
 
+declare module 'express-session' {
+    export interface SessionData {
+        passport: {
+            user: {
+                id: string;
+                displayName: string;
+                provider: string;
+            };
+        };
+    }
+}
+
+
+// Your authSuccess handler
 export const authSuccess: RequestHandler = (req, res) => {
     if (req.session?.passport) {
         const userInfo = {
