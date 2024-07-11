@@ -1,8 +1,8 @@
-import { Request, Response, RequestHandler } from 'express';
-import session from 'express-session';
+import { RequestHandler } from 'express';
+
 
 declare module 'express-session' {
-    export interface SessionData {
+    interface SessionData {
         passport: {
             user: {
                 id: string;
