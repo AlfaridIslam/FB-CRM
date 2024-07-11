@@ -40,6 +40,15 @@ export const apiSlice = createApi({
         method: "GET",
         redirect: "follow", // This will allow redirects to happen
       }),
+      onSettled: (data, { error }) => {
+        if (data) {
+          // Handle successful login (e.g., redirect to "/callback")
+          navigate("/callback"); // Use useNavigate hook
+        } else if (error) {
+          console.error("Facebook login error:", error);
+          navigate("/error");
+        }
+      },
     }),
     facebookCallback: builder.query({
       query: () => ({

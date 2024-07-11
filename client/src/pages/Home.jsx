@@ -3,8 +3,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLogoutUserMutation } from "../slices/apiSlice";
 import { clearUser } from "../slices/authSlice";
-import FacebookLogin from "../components/FacebookLogin";
-import FacebookLogout from "../components/FacebookLogout";
 
 const Home = () => {
   const userState = useSelector((state) => state.auth.user);
